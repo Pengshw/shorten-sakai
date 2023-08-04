@@ -6,9 +6,9 @@
         <div  *ngFor="let item of itemsDisplay">
             <div class="container-item">
                 <div class="container-item-description">
-                    <div>
+                    <div class="container-item-text">
                         <p>{{item.shortUrl}}</p>
-                        <p>{{configureLongLink(item.longUrl)}}</p>
+                        <p>{{item.longUrl}}</p>
                     </div>
                     
                 </div>

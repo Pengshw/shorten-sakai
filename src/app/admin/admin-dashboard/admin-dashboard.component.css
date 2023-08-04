@@ -103,8 +103,19 @@
     border:0px grey;
 } */
 
-.button-submit {
+.admin-tab {
     display: flex;
-    flex-direction: row-reverse;
+    
+    margin-bottom:  16px;
+    border-radius: 12px;
+}
 
+
+.read-tab {
+    margin-left: 64px;
+}
+.panel {
+    display: flex;
+
+    padding: 0 46px
 }

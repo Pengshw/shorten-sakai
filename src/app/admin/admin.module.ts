@@ -19,10 +19,20 @@ import { CascadeSelectModule } from "primeng/cascadeselect";
 import { MultiSelectModule } from "primeng/multiselect";
 import { InputTextareaModule } from "primeng/inputtextarea";
 import { InputTextModule } from "primeng/inputtext";
-
+import { CreateFormComponent } from './create-form/create-form.component';
+import { UpdateFormComponent } from './update-form/update-form.component';
+import { DeleteFormComponent } from './delete-form/delete-form.component';
+import { ReadFormComponent } from './read-form/read-form.component';
+import { ReadPermissionFormComponent } from './read-permission-form/read-permission-form.component';
+import { RadioButtonModule } from 'primeng/radiobutton';
 @NgModule({
   declarations: [
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    CreateFormComponent,
+    UpdateFormComponent,
+    DeleteFormComponent,
+    ReadFormComponent,
+    ReadPermissionFormComponent
   ],
   imports: [
     CommonModule,
@@ -43,6 +53,7 @@ import { InputTextModule } from "primeng/inputtext";
 		CascadeSelectModule,
 		MultiSelectModule,
 		InputTextareaModule,
+    RadioButtonModule,
 		InputTextModule
   ]
 })

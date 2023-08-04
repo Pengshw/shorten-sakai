@@ -40,15 +40,7 @@ export class MostVisitedGraphComponent implements OnInit {
     return
   }
 
-  configureLongLink(link: string) {
-    let newLink = ""
 
-    for (let i =0; i < Math.ceil(link.length / 30); i++) {
-      newLink += (link.substring(i*30,30*(i+1)) + "\n"  )
-      
-    }
-    return newLink
-  }
   round(i: number) {
     return Math.round(i)
   } 

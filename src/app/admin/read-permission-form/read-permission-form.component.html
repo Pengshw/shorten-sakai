@@ -1,0 +1,64 @@
+<div class="grid">
+	<div class="col-12">
+		<div class="card">
+			<p-table [value]="permissions" styleClass="p-datatable-striped p-datatable-gridlines"
+                [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Path</th>
+                        <th>Role</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-permission>
+                    <tr>
+                        <td>{{permission.Path}}</td>
+                        <td>{{permission.Role}}</td>
+     
+                    </tr>
+                </ng-template>
+            </p-table>
+		</div>
+
+	</div>
+</div>
+
+<div class="grid">
+   
+ 
+
+    <div class="col-12 md:col-6">
+        <form class="form" >
+            <div class="card p-fluid">
+                <h1> View All Permission </h1>
+                <div class="button-submit">
+                    <div>
+                        <p-button label="Submit" (onClick)="onViewAllPermissionSubmit()"></p-button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+        
+
+    </div>
+    <div class="col-12 md:col-6">
+    <form class="form" [formGroup]="viewPermissionRoleForm">
+        <div class="card p-fluid">
+            
+            <h1> View Role permission </h1>
+            <div class="p-formgrid grid">
+                <div class="field col">
+                    <label>Role:</label>
+                    <input  type="text" pInputText placeholder="role" formControlName="role" />
+                </div>
+              
+            </div>
+            <div class="button-submit">
+                <div>
+                    <p-button label="Submit" (onClick)="onViewPermissionRoleFormSubmit()"></p-button>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+</div>

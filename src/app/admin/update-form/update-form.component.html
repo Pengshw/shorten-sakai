@@ -1,0 +1,134 @@
+
+<p-toast></p-toast>
+
+<div class="grid">
+    <div class="col-12 md:col-6">
+        <form class="form" [formGroup]="updateActiveStatusForm">
+            <div class="card p-fluid">
+                <h1> Update ServiceAPI ActiveStatus </h1>
+                <div class="p-formgrid grid">
+                    <div class="field col">
+                        <label>ID:</label>
+                        <input  type="text" pInputText placeholder="username" formControlName="serviceapiid" />
+                    </div>
+                    <div class="field col">
+                        <label>Active Status</label>
+                        <input type="text" pInputText placeholder="active status" formControlName="activestatus" />
+                    </div>
+                </div>
+                
+                <div class="button-submit">
+                    <div>
+                        <p-button label="Submit" (onClick)="onUpdateActiveStatusFormSubmit()"></p-button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <form class="form" [formGroup]="updateRoleForm">
+            <div class="card p-fluid">
+                <h1> Update ServiceAPI Role </h1>
+                <div class="p-formgrid grid">
+                    <div class="field col">
+                        <label>ID:</label>
+                        <input  type="text" pInputText placeholder="ID" formControlName="serviceapiid" />
+                    </div>
+                    <div class="field col">
+                        <label>Role:</label>
+                        <input type="text" pInputText placeholder="Role" formControlName="role" />
+                    </div>
+                </div>
+                <div class="button-submit">
+                    <div>
+                        <p-button label="Submit" (onClick)="onUpdateRoleFormSubmit()"></p-button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <form class="form" [formGroup]="updateRoleItemForm">
+            <div class="card p-fluid">
+                <h1> Update Role name by ID </h1>
+                <div class="p-formgrid grid">
+                    <div class="field col">
+                        <label>ID:</label>
+                        <input  type="text" pInputText placeholder="id" formControlName="roleid" />
+                    </div>
+                    <div class="field col">
+                        <label>Name:</label>
+                        <input  type="text" pInputText placeholder="name" formControlName="rolename" />
+                    </div>
+                </div>
+            
+                <div class="button-submit">
+                    <div>
+                        <p-button label="Submit" (onClick)="onUpdateRoleItemFormSubmit()"></p-button>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="col-12 md:col-6">
+        <form class="form" [formGroup]="updateUserForm">
+            <div class="card p-fluid">
+                <h1> Update Service API User </h1>
+                <div class="p-formgrid grid">
+                    <div class="field col">
+                        <label>ID:</label>
+                        <input  type="text" pInputText placeholder="ID" formControlName="serviceapiid" />
+                    </div>
+                    <div class="field col">
+                        <label>Name:</label>
+                        <input type="text" pInputText placeholder="name" formControlName="serviceapiname" />
+                    </div>
+                </div>
+                <div class="p-formgrid grid">
+                    <div class="field col">
+                        <label>Role:</label>
+                        <input type="text" pInputText placeholder="password" formControlName="role" />
+                    </div>
+                    <div class="field col">
+                        <label>Active Status:</label>
+                        <input type="text" pInputText placeholder="active status" formControlName="activestatus" />
+                    </div>
+                </div>
+                
+                <div class="button-submit">
+                    <div>
+                        <p-button label="Submit" (onClick)="onUpdateUserFormSubmit()"></p-button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+        <form class="form" [formGroup]="updateAccessPermisionForm">
+            <div class="card p-fluid">
+                <h1> Update Access Permission </h1>
+                <div class="p-formgrid grid">
+                    <div class="field col">
+                        <label>Path:</label>
+                        <input  type="text" pInputText placeholder="path" formControlName="path" />
+                    </div>
+                    <div class="field col">
+                        <label>Role:</label>
+                        <input  type="text" pInputText placeholder="role" formControlName="role" />
+                    </div>
+                </div>
+              
+                <div class="button-submit">
+                    <div>
+                        <p-button label="Submit" (onClick)="onUpdateAccessPermisionFormSubmit()"></p-button>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

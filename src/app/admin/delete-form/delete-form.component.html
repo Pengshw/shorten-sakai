@@ -1,0 +1,22 @@
+<div class="grid">
+    <div class="col-12 md:col-6">
+        <form class="form" [formGroup]="deleteItemForm">
+            <div class="card p-fluid">
+                <h1> Delete item service api ID </h1>
+                <div class="p-formgrid grid">
+                    <div class="field col">
+                        <label>ID:</label>
+                        <input  type="text" pInputText placeholder="username" formControlName="serviceapiid" />
+                    </div>
+                </div>
+                <div class="button-submit">
+                    <div>
+                        <p-button label="Submit" (onClick)="onDeleteItemFormSubmit()"></p-button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<p-toast></p-toast>
