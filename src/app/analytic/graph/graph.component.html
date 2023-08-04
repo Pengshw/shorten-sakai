@@ -1,0 +1,22 @@
+
+<div class="card">
+    <p-card subheader="Clicks over time" >
+        <p-chart type="line" [data]="data" [options]="options"></p-chart>
+        <form class="form" [formGroup]="linkForm">
+            <div class="container">
+                <div class="form-container">
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon">Url</span>
+                        <input class="input" type="text" pInputText placeholder="url" formControlName="link" />
+                    </div>
+                    <div class="button-submit">
+                        <p-button label="Register" styleClass="p-button-danger" (onClick)="onLinkFormSubmit()"></p-button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </p-card>
+    
+    
+</div>
+

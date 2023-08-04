@@ -1,0 +1,39 @@
+.card {
+    height: 100%;
+    margin: 16px 0 0 16px ;
+    
+}
+.card > div {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.form-container {
+    display: flex;
+}
+
+.container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.p-inputgroup {
+    margin: 16px 0 0 8px;
+}
+
+.button-submit {
+    margin: 16px 0 0 8px;
+}
+
+input.input {
+    width:200px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+
+    .url-card { 
+        width: 85%;
+    }
+  }

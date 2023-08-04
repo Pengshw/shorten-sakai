@@ -1,0 +1,110 @@
+.section{
+    width: max-content ;
+    height: fit-content;
+    display: flex;
+    
+}
+
+.a{
+    width:max-content;
+    height: fit-content;
+    display:flex;
+    justify-content: left;
+    
+}
+
+.b{
+    width: max-content;
+    height: fit-content;
+    display:block;
+    justify-content: center;
+}
+
+
+.c{
+    width:max-content;
+    height: fit-content;
+    display:flex;
+    justify-content: center;
+}
+
+.d{
+    width:max-content;
+    height: fit-content;
+    display:flex;
+    justify-content:space-evenly;
+    
+    
+}
+
+.p-buttonset{
+    height: fit-content;
+    width: max-content ;
+    display: flex;
+
+}
+
+.p-inputgroup-addon{
+    width: 180px;
+}
+
+.input{
+    width: 300px;
+}
+
+.inputSearch{
+    width: 750px;
+}
+
+.sub{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    width: max-content;
+    height: fit-content;
+}
+
+.p-inputgroup{
+    width: max-content ;
+    height: 30px;
+    display: flex;
+    margin-bottom: 50px;
+
+}
+
+.actionButtons{
+    width: 1150px;
+    justify-content:space-between;
+    display: flex;
+}
+
+.p-float-label{
+    width: max-content;
+    display: flex;
+}
+
+.password{
+    width: 300px;
+    display: flex;
+}
+
+.card-container {
+    margin: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    width: 80%;
+}
+
+/* * {
+    border:0px grey;
+} */
+
+.button-submit {
+    display: flex;
+    flex-direction: row-reverse;
+
+}

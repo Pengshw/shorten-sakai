@@ -1,0 +1,42 @@
+<!-- new w recaptcha input -->
+<div class="login">
+
+    <p-card header="Login" class="login-card">
+    
+        <!-- <ng-template pTemplate="header">
+            <div class="header-card">
+                <h1 class="header-card-text">SUNWAY</h1>
+            </div>
+        </ng-template> -->
+
+        <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="field">
+                <label class="label">Email</label>
+                <input type="text" class="p-inputtext" ng-reflect-name="email" placeholder="Enter email" formControlName="username" />
+            </div>
+            <div class="field password-input-container">
+                <label class="label">Password</label>
+                <div class="password-input-wrapper"></div>
+                <input type="{{ showPassword ? 'text' : 'password' }}" class="p-inputtext password-input" ng-reflect-name="password" placeholder="*****" formControlName="password"/>
+                <span class="password-toggle" (click)="togglePasswordVisibility()">
+                    <i class="pi" [ngClass]="{ 'pi-eye-slash': showPassword, 'pi-eye': !showPassword }"></i>
+                  </span>
+            </div>
+        
+            <!-- Angular reCAPTCHA v2 form code here -->
+            <div class="row mt-3">
+                <div class="col-sm-12 mb-2">
+                    <re-captcha id="recaptcha" (resolved)="checkCaptcha($event)" ></re-captcha>
+                </div>
+            </div>
+            <!-- End of Angular reCAPTCHA v2 form code -->
+                <div class="button-submit">
+                   
+                    <p-button label="Login" styleClass="p-button-danger" (onClick)="handleClick($event)" [disabled]="!captchaResolved"></p-button>
+                </div>  
+        </form>
+        
+    </p-card>
+</div>
+
+<p-toast key="loginToast"></p-toast>

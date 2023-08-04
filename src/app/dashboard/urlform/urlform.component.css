@@ -1,0 +1,65 @@
+.url {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 5%;
+}
+
+.url-card {
+    width: 85%;
+}
+
+input.url {
+    width: 100%;
+}
+
+input.backhalf {
+    width: 100%
+}
+
+.url-card-form-button {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 5%;
+}
+
+label {
+    display: block;
+    padding: 16px 0;
+    
+}
+
+
+
+.backhalf-container-input {
+    width: 40%;
+    display: inline-block;
+}
+
+.backhalf-container-display {
+    padding-left: 32px;
+    width: 60%;
+    display: inline-block;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+
+    .url-card { 
+        width: 85%;
+    }
+
+    .backhalf-container-input {
+        width: 100%;
+        display: block;
+    }
+    
+    .backhalf-container-display {
+        padding-left: 32px;
+        width: 100%;
+        display: block;
+    }
+    
+
+  }

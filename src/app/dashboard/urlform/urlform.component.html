@@ -1,0 +1,37 @@
+
+
+<div class="url">
+    
+    <p-card header="URL shortener" class="url-card">
+        <form class="url-card-form" [formGroup]="urlForm" (ngSubmit)="onUrlFormSubmit()">
+            <div>
+            
+                <input type="text" class="url" pInputText formControlName="url_link" id="url_address" placeholder="Enter URL here" >
+                <label for="back half">back-half (optional)</label>
+                <div class="backhalf-container">
+                    
+                    <div class="backhalf-container-input">
+                        <input type="text" [(ngModel)]="backhalf" class="backhalf" pInputText formControlName="url_backhalf" id="backhalf" placeholder="Enter back-half here" >
+                    </div>
+                    <div class="backhalf-container-display"  *ngIf="backhalf">
+                        <span>https://sunway.com.my/{{backhalf}}</span>
+                        
+                    </div>
+                    
+                    
+                </div>
+                
+                <div class="url-card-form-button" >
+                    <p-button label="SHORTEN URL" styleClass="p-button-danger" (onClick)="handleUrlClick($event)"   ></p-button>
+                </div>
+            
+            </div>
+            
+        </form>
+    </p-card>
+    
+</div>
+
+<p-toast></p-toast>
+
+

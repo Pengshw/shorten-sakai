@@ -1,0 +1,27 @@
+
+
+
+<div class="container">
+    <p-card  header="Most Visited Links" class="container-card" >
+        <div  *ngFor="let item of itemsDisplay">
+            <div class="container-item">
+                <div class="container-item-description">
+                    <div>
+                        <p>{{item.shortUrl}}</p>
+                        <p>{{configureLongLink(item.longUrl)}}</p>
+                    </div>
+                    
+                </div>
+                <div class="container-item-value">
+                    <p-progressBar [value]="item.count*100/total" [showValue]="false" class="progress-bar customProgress"></p-progressBar>
+                    <span>{{round(item.count*100/total).toString()}}%</span>
+                </div>
+                
+            </div>
+            <p-divider></p-divider>
+        </div>
+        <p-paginator (onPageChange)="onPageChange($event)"  [rows]="5" [totalRecords]="totalRecord" [rowsPerPageOptions]="[5, 10, 15]"></p-paginator>
+
+    </p-card>
+</div>
+

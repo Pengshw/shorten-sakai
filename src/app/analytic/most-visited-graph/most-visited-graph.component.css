@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16px;
+    
+}
+.container-header {
+    padding: 16px 0;
+}
+
+.container-item {
+    display:flex;
+    
+}
+
+
+
+.container-card {
+    width: 800px;
+}
+
+.container-item-description {
+    width: 80%;
+    display:flex;
+    flex-direction: column;
+}
+.container-item-value {
+    width: 20%;
+    display: flex;
+
+}
+
+span {
+    text-align: right;
+}
+
+.progress-bar {
+    width: 80%;
+    padding-right: 6px;
+}
+
+
+
+
+* {
+    
+    margin: 0;
+}
+

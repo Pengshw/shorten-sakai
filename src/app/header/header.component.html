@@ -1,0 +1,57 @@
+<!--
+
+    <div class="header" >
+        <a href="#default" class="logo">SUNWAY</a>
+  
+    <div class="dropdown" style="float:right;" *ngIf="isLoggedIn">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-options">
+            <a href="#" routerLink="/analytic">Dashboard</a>
+            <a href="#" routerLink="/urlpanel">Url Panel</a>
+            <a href="#" *ngIf="isAdmin" routerLink="/admin">Admin</a>
+            <a (click)="handleLogOutClick()">Logout</a> 
+        </div>
+      </div>
+      </div>
+   
+-->
+<p-toast></p-toast>
+<!--
+<nav role="navigation" *ngIf="isLoggedIn">
+    <div class="nav-container">
+       <div class="logo">
+            SUNWAY
+        </div>
+        <div>
+            <a href="#" routerLink="/analytic">Dashboard</a>
+            <a href="#" routerLink="/urlpanel">Url Panel</a>
+            <a href="#" *ngIf="isAdmin" routerLink="/admin">Admin</a>
+            <a (click)="handleLogOutClick()">Logout</a> 
+        </div>
+    </div>
+</nav>
+
+<p-sidebar [(visible)]="sidebarVisible3" position="top">
+    <h3>Top Sidebar</h3>
+</p-sidebar>
+<div>
+    <p-button type="button" class="mr-2 nav-but"  (scroll)="onScroll($event)" (click)="sidebarVisible3 = true" icon="pi pi-arrow-down"></p-button>
+</div>
+-->
+
+<nav id="nav-bar">
+    <div class="nav-container">
+        <div class="logo">
+             SUNWAY
+         </div>
+         <div *ngIf="isLoggedIn">
+            <ul>
+                <li> <a href="#" routerLink="/analytic">Dashboard</a> </li>
+                <li> <a href="#" routerLink="/urlpanel">Url Panel</a> </li>
+                <li> <a href="#" *ngIf="isAdmin" routerLink="/admin">Admin</a> </li>
+                <li> <a (click)="handleLogOutClick()">Logout</a> </li>
+            </ul>
+
+         </div>
+     </div>
+</nav>

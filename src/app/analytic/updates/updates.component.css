@@ -1,0 +1,39 @@
+.panel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 50px;
+    flex-wrap:wrap;
+}
+.update-card {
+    width: 280px;
+    height: 240px;
+    margin: 16px 16px;
+}
+
+.update-card-title {
+    font-size: 12px;
+}
+
+
+
+@media screen and (max-width: 400px) {
+    .panel {
+        flex-direction: column;
+    }
+    .update-card-container-div {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .update-card {
+        max-width: 80%;
+        margin: 8px;
+    }
+    .update-card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+}

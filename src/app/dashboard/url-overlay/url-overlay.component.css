@@ -1,0 +1,11 @@
+span {
+    color: lightsteelblue;
+    border: 1px solid blue;
+    border-radius: 100%;
+}
+
+.update-card-copy {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 32px;
+}

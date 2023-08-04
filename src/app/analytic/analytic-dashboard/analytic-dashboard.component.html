@@ -1,0 +1,59 @@
+
+<div class="body">
+
+    <app-updates></app-updates>
+
+    <div class="linegraphPanel">
+        <div class="linegraphPanelinner">
+            <app-graph></app-graph>
+        </div>
+    </div>
+    
+    <div class="panel">
+        <div class="browserPanel">
+            <app-os-chart></app-os-chart>
+            <app-browser-chart></app-browser-chart>
+        </div>
+        <div class="mostvisitedPanel">
+            <app-most-visited-graph></app-most-visited-graph>
+            
+        </div>
+    </div>
+    
+    <div class="button-container">
+        
+        <div class="ribbon change">
+                <div class="share change">
+                    
+                    <div><i class="pi pi-calendar-times icon"></i></div>
+                        
+                </div>
+
+                <div class="form-sticky">
+                    <form [formGroup]="calenderForm">
+                        <div class="form">
+                            <div class="form-container">
+                                <div class="start_date-container form-item">
+                                    <label for="from-date">From </label>
+                                    <p-calendar formControlName="start_date" class="form-calender" placeholder="MM/DD/YYYY"  ></p-calendar>
+                                </div>
+                                <div class="end_date-container form-item">
+                    
+                                    <label for="to-date">To </label>
+                                    <p-calendar formControlName="end_date" class="form-calender" placeholder="MM/DD/YYYY"></p-calendar>
+                                </div>
+                                <div class="button-container form-item">
+                                    <label for="to-date"> &nbsp;  </label>
+                                    <p-button label="Search" styleClass="p-button-danger" (onClick)="handleClick($event)"></p-button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+              
+          </div>
+    </div>
+    
+    
+</div>
