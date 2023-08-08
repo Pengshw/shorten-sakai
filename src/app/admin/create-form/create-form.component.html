@@ -16,15 +16,36 @@
                     </div>
                 </div>
                 <div class="p-formgrid grid">
+                   
                     <div class="field col">
-                        <label>Role:</label>
-                        <input type="text" pInputText placeholder="role" formControlName="role" />
+                        <label class="radiolabel">Active Status:</label>
+                        <div class="flex flex-wrap gap-3">
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="1" formControlName="activeStatus"></p-radioButton>
+                                <label class="ml-2">1</label>
+                            </div>
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="2" formControlName="activeStatus"></p-radioButton>
+                                <label class="ml-2">2</label>
+                            </div>
+                        </div>
+                        
                     </div>
                     <div class="field col">
-                        <label>Active Status</label>
-                        <input type="text" pInputText placeholder="activestatus" formControlName="activeStatus" />
+                        <label class="radiolabel">Role:  </label>
+                        <div class="flex flex-wrap gap-3">
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="1" formControlName="role"></p-radioButton>
+                                <label class="ml-2">1</label>
+                            </div>
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="2" formControlName="role"></p-radioButton>
+                                <label class="ml-2">2</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
+             
                 <div class="button-submit">
                     <div>
                         <button pButton pRipple type="button" label="Submit" class="button-outlined" (click)="onBrowserUserRegisterSubmit()"></button>
@@ -42,9 +63,21 @@
                         <label>ID:</label>
                         <input  type="text" pInputText placeholder="ID" formControlName="path" />
                     </div>
-                    <div class="field col">
-                        <label>Role:</label>
-                        <input type="text" pInputText placeholder="name" formControlName="role" />
+                    
+                </div>
+                <div class="p-formgrid grid">
+                <div class="field col">
+                    <label>Role:</label>
+                        <div class="flex flex-wrap gap-3">
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="1" formControlName="role"></p-radioButton>
+                                <label class="ml-2">1</label>
+                            </div>
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="2" formControlName="role"></p-radioButton>
+                                <label class="ml-2">2</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="button-submit">
@@ -80,13 +113,33 @@
                     </div>
                 </div>
                 <div class="p-formgrid grid">
+                   
                     <div class="field col">
-                        <label>Role:</label>
-                        <input type="text" pInputText placeholder="role" formControlName="serviceapirole" />
+                        <label class="radiolabel">Active Status:</label>
+                        <div class="flex flex-wrap gap-3">
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="1" formControlName="activestatus"></p-radioButton>
+                                <label class="ml-2">1</label>
+                            </div>
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="2" formControlName="activestatus"></p-radioButton>
+                                <label class="ml-2">2</label>
+                            </div>
+                        </div>
+                        
                     </div>
                     <div class="field col">
-                        <label>Active Status:</label>
-                        <input type="text" pInputText placeholder="activestatus" formControlName="activestatus" />
+                        <label class="radiolabel">Role:</label>
+                        <div class="flex flex-wrap gap-3">
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="1" formControlName="serviceapirole"></p-radioButton>
+                                <label class="ml-2">1</label>
+                            </div>
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="2" formControlName="serviceapirole"></p-radioButton>
+                                <label class="ml-2">2</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="button-submit">
@@ -102,8 +155,8 @@
                 <h1> Create new Role </h1>
                 <div class="p-formgrid grid">
                     <div class="field col">
-                        <label>Role:</label>
-                        <input  type="text" pInputText placeholder="username" formControlName="rolename" />
+                        <label>Role name:</label>
+                        <input  type="text" pInputText placeholder="name" formControlName="rolename" />
                     </div>
                 </div>
               

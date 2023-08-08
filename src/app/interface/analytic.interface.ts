@@ -1,25 +1,12 @@
 export interface ILatestUrlItem {
     shortUrl: string,
     longUrl: string,
-    code: String
-}
-
-export interface IUrlFormBody {
-    longlink: String,
-    backhalf: String
-}
-
-export interface ICardInfo {
-    field: String,
-    data_title: String,
-    data: String,
-    subdata_title: String,
-    subdata: String
+    code: string
 }
 
 export interface IClickCountItem {
-    click_count: String
-    code: String
+    click_count: string
+    code: string
 }
 
 export interface ICalenderForm {
@@ -27,10 +14,6 @@ export interface ICalenderForm {
     end_date: Date
 }
 
-export interface IResponseCode {
-    code: String,
-    record: any
-}
 
 export interface IUserItem {
     ID: string,
@@ -44,7 +27,8 @@ export interface IUserItem {
 
 export interface IBrowserData {
     stat_browser: string,
-    browserCount: number
+    browserCount: number,
+    code?: string
 }
 
 export interface IOsData {

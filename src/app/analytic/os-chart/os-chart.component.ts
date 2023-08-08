@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AnalyticService } from 'src/app/analytic.service';
 import { Subscription } from 'rxjs';
-import { CalendarService } from 'src/app/calendar.service';
+import { CalendarService, AnalyticService} from 'src/app/service';
 
 @Component({
   selector: 'app-os-chart',

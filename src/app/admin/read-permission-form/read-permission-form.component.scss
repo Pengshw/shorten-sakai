@@ -11,3 +11,11 @@
 .grid {
     margin: 0 32px;
 }
+
+@media only screen and (max-width: 768px) {
+
+    .grid {
+        margin: 0;
+    }
+
+}

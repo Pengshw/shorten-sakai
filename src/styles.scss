@@ -19,6 +19,10 @@ $gutter: 1rem; //for primeflex grid system
     font-size: 45px;
     font-style: italic;
     font-weight: 900;
-    padding-left: 36px;
     
+    
+}
+
+:host ::ng-deep  .input-form {
+    width: 200px
 }

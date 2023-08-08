@@ -45,9 +45,22 @@ span {
 
 
 
-
 * {
     
     margin: 0;
 }
 
+@media only screen and (max-width: 768px) {
+    div.container {
+        padding: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container-card {
+        width: 290px;
+    
+    }
+
+}

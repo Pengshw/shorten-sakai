@@ -8,6 +8,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
 
   if (!cookieService.check("jwt")) {
+    
     router.navigate(["/login"]);
     return false
   }

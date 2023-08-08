@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProgressBarModule } from 'primeng/progressbar';
-import { AnalyticService } from 'src/app/analytic.service';
-import { ISitesItem } from 'src/app/interfaces.interface';
+import { ISitesItem } from 'src/app/interface';
 import { Subscription } from 'rxjs';
-import { CalendarService } from 'src/app/calendar.service';
+import { CalendarService, AnalyticService } from 'src/app/service';
 
 
 @Component({
@@ -15,7 +13,7 @@ export class MostVisitedGraphComponent implements OnInit {
   clickEventsubscription:Subscription
   constructor(private analyticService: AnalyticService, private calendarService: CalendarService) {
       this.clickEventsubscription = this.calendarService.getClickEvent().subscribe((data)=>{
-        console.log("data: ", data)
+   
         this.updateChart(data)
     })
   }
@@ -32,12 +30,12 @@ export class MostVisitedGraphComponent implements OnInit {
 
   updateChart(dates: Date[]) {
     this.analyticService.getMostVisitedDomains(dates).subscribe( (data: ISitesItem[]) => {
+      
       this.items = data
       this.total = data.map(item => item.count).reduce( (x, y) => {return x+y}, 0)
       this.totalRecord = data.length
       this.updateDisplayItems(0, 5)
     })
-    return
   }
 
 
@@ -45,12 +43,12 @@ export class MostVisitedGraphComponent implements OnInit {
     return Math.round(i)
   } 
 
-  updateDisplayItems(start:number=0, end:number) {
+  updateDisplayItems( end:number, start:number=0,) {
     this.itemsDisplay = this.items.slice(start, end)
   }
 
   onPageChange(e: any) {
-    this.updateDisplayItems(e.page*e.rows, (e.page+1)*e.rows)
+    this.updateDisplayItems((e.page+1)*e.rows, e.page*e.rows)
   }
   
 }

@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { AdminService } from 'src/app/admin.service';
+import { AdminService } from 'src/app/service';
 import { MessageService } from 'primeng/api';
-import { IUserItem } from 'src/app/interfaces.interface';
-
+import { IUserItem } from 'src/app/interface';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-read-form',
@@ -11,7 +11,7 @@ import { IUserItem } from 'src/app/interfaces.interface';
   styleUrls: ['./read-form.component.scss']
 })
 export class ReadFormComponent {
-  constructor(private fb: FormBuilder, private adminService: AdminService, private messageService: MessageService) {}
+  constructor(private fb: FormBuilder, private adminService: AdminService, private messageService: MessageService, private authService: AuthService) {}
   
   
   searchInputForm = this.fb.group({
@@ -36,6 +36,7 @@ export class ReadFormComponent {
     let body = this.searchIdForm.value
 
     this.adminService.callApi("api/serviceapi/view/item", body).subscribe(data => {
+      
       this.clearUsers()
       this.displayUser(data.record[0])
     })
@@ -54,10 +55,6 @@ export class ReadFormComponent {
 
   
 
-  
-
-  
-
   roles: any[] = []
 
   displayRole(data: any) {
@@ -70,8 +67,7 @@ export class ReadFormComponent {
 
   onViewAllRoleSubmit() {
     this.adminService.callGetApi("api/serviceapirole/view/all").subscribe(data => {
-      console.log(data)
-
+      
       this.clearRoles()
       for (let i of data.record) {
         this.displayRole(i)
@@ -87,9 +83,9 @@ export class ReadFormComponent {
   onViewRoleByRolenameFormSubmit() {
 
     let body = this.viewRoleByRolenameForm.value
-    console.log(body)
+
     this.adminService.callApi("api/serviceapirole/view/byrolename", body).subscribe(data => {
-      console.log(data)
+    
 
       this.clearRoles()
       for (let i of data.record) {
@@ -99,3 +95,4 @@ export class ReadFormComponent {
     })
   }
 }
+ 

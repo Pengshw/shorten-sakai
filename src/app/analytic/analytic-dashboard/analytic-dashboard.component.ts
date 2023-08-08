@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { CalendarService } from 'src/app/calendar.service';
+import { CalendarService } from 'src/app/service';
 
 @Component({
   selector: 'app-analytic-dashboard',
@@ -17,6 +17,7 @@ export class AnalyticDashboardComponent {
 
   constructor(private fb: FormBuilder, private calendarService: CalendarService) {}
   handleClick(e: any) {
-    this.calendarService.sendClickEvent([(this.calenderForm.value.start_date) as Date, (this.calenderForm.value.end_date) as Date])
+   
+    this.calendarService.sendClickEvent([this.calenderForm.value.start_date, this.calenderForm.value.end_date])
   }
 }

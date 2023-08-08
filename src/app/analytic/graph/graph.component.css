@@ -1,11 +1,10 @@
 .card {
     height: 100%;
-    margin: 16px 0 0 16px ;
-    
+    margin: 0 32px;
 }
 .card > div {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     
 }
 
@@ -30,10 +29,50 @@ input.input {
     width:200px;
 }
 
+.input-form {
+    width: 200px
+}
+
+
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
+    .container {
+        align-items: flex-end;
+    }
+    .p-inputgroup {
+        padding: 0;
+        margin: 0;
+        margin-bottom: 16px;
+        
+    }
+    .form-container {
+        width: 100%;
+        flex-direction: column;
+        
+        
+    }
+    .container {
+        padding: 0;
 
+    }
+    .button-submit {
+        display:flex;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0
+    }
+    .card {
+        margin: 0;
+        padding: 0;
+    }
     .url-card { 
         width: 85%;
     }
-  }
+
+    :host ::ng-deep  {
+        
+        .test {
+            width: 80px
+        }
+    }
+}

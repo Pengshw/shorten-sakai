@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { AdminService } from 'src/app/admin.service';
+import { AdminService } from 'src/app/service';
 import { MessageService } from 'primeng/api';
-import { IUserItem } from 'src/app/interfaces.interface';
+import { IUserItem } from 'src/app/interface';
 
 @Component({
   selector: 'app-read-permission-form',
@@ -27,7 +27,6 @@ export class ReadPermissionFormComponent {
 
   onViewAllPermissionSubmit() {
     this.adminService.callGetApi("api/serviceapiaccesspermission/view/all").subscribe(data => {
-      console.log(data)
       this.permissions = []
       for (let i of data.record) {
         this.displayPermission(i)
@@ -43,7 +42,6 @@ export class ReadPermissionFormComponent {
     let body = this.viewPermissionRoleForm.value
 
     this.adminService.callApi("api/serviceapiaccesspermission/view/byrole", body).subscribe(data => {
-      console.log(data)
 
       this.permissions = []
       for (let i of data.record) {

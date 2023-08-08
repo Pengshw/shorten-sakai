@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { AdminService } from 'src/app/admin.service';
+import { AdminService } from 'src/app/service';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -18,9 +18,7 @@ export class DeleteFormComponent {
 
   onDeleteItemFormSubmit() {
     let body = this.deleteItemForm.value
-    console.log(body)
     this.adminService.callApi("api/serviceapi/delete/item", body).subscribe(data => {
-      console.log(data)
       if (data.code == "AP000") {
         this.messageService.add({
           severity: 'success',

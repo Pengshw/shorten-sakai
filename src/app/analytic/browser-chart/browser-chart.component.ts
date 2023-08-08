@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AnalyticService } from 'src/app/analytic.service';
 import { Subscription } from 'rxjs';
-import { CalendarService } from 'src/app/calendar.service';
-
+import { CalendarService, AnalyticService } from 'src/app/service';
 
 @Component({
   selector: 'app-browser-chart',
@@ -32,7 +30,7 @@ export class BrowserChartComponent implements OnInit {
 
   updateChart(dates: Date[]) {
     this.analyticService.getBrowserData(dates).subscribe(data => {
-
+    
       this.xValues = data.map(x => x.stat_browser)
       this.yValues = data.map(x => x.browserCount)
       this.data = {

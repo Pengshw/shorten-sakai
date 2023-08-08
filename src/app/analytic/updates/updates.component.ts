@@ -1,9 +1,10 @@
 import { Component, } from '@angular/core';
-import { AnalyticService } from "../../analytic.service"
-import { ILatestUrlItem, ICardInfo,  IClickCountItem} from "../../interfaces.interface"
-import { CalendarService } from 'src/app/calendar.service';
+import { ILatestUrlItem, ICardInfo,  IClickCountItem} from "src/app/interface"
+import { CalendarService, AnalyticService } from 'src/app/service';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
+import { MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-updates',
@@ -18,7 +19,8 @@ export class UpdatesComponent {
     constructor(
         private analyticsService: AnalyticService, 
         private calendarService: CalendarService,
-        private authService: AuthService
+        private authService: AuthService,
+        private messageService: MessageService
         ) {        
         this.clickEventsubscription = this.calendarService.getClickEvent().subscribe((data)=>{
             this.generateTotalClick(data);
@@ -62,20 +64,17 @@ export class UpdatesComponent {
         let latestUrl = this.analyticsService.getLatestUrl()
         latestUrl.subscribe((data: ILatestUrlItem)  => {
 
-            if (data.code == "AT0006") {
-                //this.authService.logout()
-
-            } else {
-                let newField: ICardInfo = {
-                    field: "Latest Url Generated",
-                    data_title : "Shorten link:",
-                    data: `${data.shortUrl}`,
-                    subdata_title: "Original Link: ",
-                    subdata: `${this.__configureLongLink(data.longUrl)}`
-                }
-                
-                this.latestUrlItem = newField
+        
+            let newField: ICardInfo = {
+                field: "Latest Url Generated",
+                data_title : "Shorten link:",
+                data: `${data.shortUrl}`,
+                subdata_title: "Original Link: ",
+                subdata: `${this.__configureLongLink(data.longUrl)}`
             }
+            
+            this.latestUrlItem = newField
+            
                 
         })
     } 
@@ -84,19 +83,17 @@ export class UpdatesComponent {
         let totalClick = this.analyticsService.getTotalClick(dates)
    
         totalClick.subscribe( (data: IClickCountItem) => {
-            if (data.code == "AT0006") {
-                //this.authService.logout()
-
-            } else {
-                let newField: ICardInfo = {
-                    field: "Total clicks",
-                    data_title : "",
-                    data: `${data.click_count}`,
-                    subdata_title: "",
-                    subdata: ""
-                }
-                this.totalClicks = newField
+   
+            
+            let newField: ICardInfo = {
+                field: "Total clicks",
+                data_title : "",
+                data: `${data.click_count}`,
+                subdata_title: "",
+                subdata: ""
             }
+            this.totalClicks = newField
+            
         })
     }
 
@@ -104,9 +101,13 @@ export class UpdatesComponent {
         let totalClick = this.analyticsService.getTotalNewUrl(dates)
         totalClick.subscribe( (data: IClickCountItem) => {
           
-            if (data.code == "AT0006") {
-                    
-                //this.authService.logout()
+            if (data.code == "AT000") {
+                this.messageService.add({
+                    severity: 'error',
+                    summary: 'Session Expired',
+                    detail: 'Please login to continue'
+                  });
+                this.authService.logout()
 
             } else {
                 let newField: ICardInfo = {

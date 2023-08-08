@@ -2,8 +2,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-top: 50px;
     flex-wrap:wrap;
+    padding-top: 50px;
 }
 .update-card {
     width: 280px;
@@ -17,9 +17,11 @@
 
 
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 768px) {
     .panel {
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
     .update-card-container-div {
         display:flex;
@@ -27,13 +29,18 @@
         align-items: center;
     }
     .update-card {
-        max-width: 80%;
-        margin: 8px;
+        width: 260px;
     }
+
     .update-card-container {
       display: flex;
       justify-content: center;
       align-items: center;
       
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
     }
 }

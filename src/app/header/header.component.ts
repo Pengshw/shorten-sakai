@@ -4,8 +4,6 @@ import { AuthService } from '../auth/auth.service';
 import { MessageService } from 'primeng/api';
 import { CookieService } from 'ngx-cookie-service';
 import { Subscription } from 'rxjs';
-import { HostListener } from '@angular/core';
-
 
 @Component({
   selector: 'app-header',
@@ -16,13 +14,6 @@ import { HostListener } from '@angular/core';
 
 export class HeaderComponent implements OnInit{
   logInChangeEventSubscription: Subscription
-  
-  // @HostListener("window:scroll", ['$event']) onScroll(event: any) {
-  //   const verticalOffset = window.scrollY 
-  //         || document.documentElement.scrollTop 
-  //         || document.body.scrollTop || 0;
-  //   console.log(verticalOffset)
-  // }
   
   isLoggedIn: boolean = false;
   isAdmin: boolean = false;
@@ -40,9 +31,6 @@ export class HeaderComponent implements OnInit{
       this.isLoggedIn = true;
     }
     this.isAdmin = this.authService.isAdmin
-    console.log(this.isAdmin)
-    console.log(this.isLoggedIn);
-    
 
   }
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import { IUrlFormBody } from './interfaces.interface';
+import { IUrlFormBody } from 'src/app/interface';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
@@ -13,7 +13,6 @@ export class ShortlinkService {
 
   private __getJwtFromCookie() {
     let headers = {}
-    console.log("header: ", headers)
     if (this.cookieService.check("jwt")) {
    
         headers = {

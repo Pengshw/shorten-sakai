@@ -3,8 +3,8 @@ import { FormBuilder } from '@angular/forms';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { UrlOverlayComponent } from "../url-overlay/url-overlay.component";
 import { MessageService } from 'primeng/api';
-import { ShortlinkService } from 'src/app/shortlink.service';
-import { IUrlFormBody } from 'src/app/interfaces.interface';
+import { ShortlinkService } from 'src/app/service';
+import { IUrlFormBody } from 'src/app/interface';
 import { AuthService } from 'src/app/auth/auth.service';
 
 
@@ -35,8 +35,8 @@ export class UrlformComponent {
     onUrlFormSubmit = () =>  {
 
         const body: IUrlFormBody = {
-        longlink: (this.urlForm.value.url_link) as String,
-        backhalf: (this.urlForm.value.url_backhalf) as String
+            longlink: this.urlForm.value.url_link,
+            backhalf: this.urlForm.value.url_backhalf
         }
         return this.shortLinkService.getNewShortUrl(body)
     }
@@ -51,22 +51,19 @@ export class UrlformComponent {
             return
         }
         this.onUrlFormSubmit().subscribe(resp => {
-        if (resp.code === "AT0006"){
-            //this.authService.logout()
-        }   
-        if (resp.code === "success") {
-            this.ref = this.dialogService.open(UrlOverlayComponent, {
-            header: 'Your New URL', data:{
-                resp
+            if (resp.code === "success") {
+                this.ref = this.dialogService.open(UrlOverlayComponent, {
+                header: 'Your New URL', data:{
+                    resp
+                }
+                });
+            } else if (resp.code == "failure") {
+                this.messageService.add({
+                severity: 'error',
+                summary: 'Error',
+                detail: 'Backhalf is already in use',
+                });
             }
-            });
-        } else if (resp.code == "failure") {
-            this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: 'Backhalf is already in use',
-            });
-        }
 
         })
     }

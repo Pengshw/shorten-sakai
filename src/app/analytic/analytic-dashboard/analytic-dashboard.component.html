@@ -1,5 +1,29 @@
 
 <div class="body">
+    <div class="calender-container">
+        <p-card>
+            <form [formGroup]="calenderForm">
+                <div class="form">
+                    <div class="form-container">
+                        <div class="start_date-container form-item">
+                            <label for="from-date">From </label>
+                            <p-calendar formControlName="start_date" [showIcon]="true" class="form-calender" placeholder="MM/DD/YYYY"  ></p-calendar>
+                        </div>
+                        <div class="end_date-container form-item">
+            
+                            <label for="to-date">To </label>
+                            <p-calendar formControlName="end_date" [showIcon]="true" class="form-calender" placeholder="MM/DD/YYYY"></p-calendar>
+                        </div>
+                        <div class="button-container form-item">    
+                            <label for="to-date"> &nbsp;  </label>
+                            <p-button label="Search" (onClick)="handleClick($event)"></p-button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </form>
+        </p-card>
+    </div>
 
     <app-updates></app-updates>
 
@@ -19,7 +43,7 @@
             
         </div>
     </div>
-    
+    <!--
     <div class="button-container">
         
         <div class="ribbon change">
@@ -35,12 +59,12 @@
                             <div class="form-container">
                                 <div class="start_date-container form-item">
                                     <label for="from-date">From </label>
-                                    <p-calendar formControlName="start_date" class="form-calender" placeholder="MM/DD/YYYY"  ></p-calendar>
+                                    <p-calendar formControlName="start_date" [showIcon]="true" class="form-calender" placeholder="MM/DD/YYYY"  ></p-calendar>
                                 </div>
                                 <div class="end_date-container form-item">
                     
                                     <label for="to-date">To </label>
-                                    <p-calendar formControlName="end_date" class="form-calender" placeholder="MM/DD/YYYY"></p-calendar>
+                                    <p-calendar formControlName="end_date" [showIcon]="true" class="form-calender" placeholder="MM/DD/YYYY"></p-calendar>
                                 </div>
                                 <div class="button-container form-item">
                                     <label for="to-date"> &nbsp;  </label>
@@ -54,6 +78,6 @@
               
           </div>
     </div>
-    
-    
+    -->
+
 </div>

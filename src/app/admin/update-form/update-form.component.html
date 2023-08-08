@@ -11,12 +11,24 @@
                         <label>ID:</label>
                         <input  type="text" pInputText placeholder="username" formControlName="serviceapiid" />
                     </div>
+                    
+                </div>
+                <div class="p-formgrid grid">
                     <div class="field col">
-                        <label>Active Status</label>
-                        <input type="text" pInputText placeholder="active status" formControlName="activestatus" />
+                        <label>Active Status:</label>
+                        <div class="flex flex-wrap gap-3">
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="1" formControlName="activestatus"></p-radioButton>
+                                <label class="ml-2">1</label>
+                            </div>
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="2" formControlName="activestatus"></p-radioButton>
+                                <label class="ml-2">2</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
+
                 <div class="button-submit">
                     <div>
                         <p-button label="Submit" (onClick)="onUpdateActiveStatusFormSubmit()"></p-button>
@@ -34,11 +46,24 @@
                         <label>ID:</label>
                         <input  type="text" pInputText placeholder="ID" formControlName="serviceapiid" />
                     </div>
+                    
+                </div>
+                <div class="p-formgrid grid">
                     <div class="field col">
                         <label>Role:</label>
-                        <input type="text" pInputText placeholder="Role" formControlName="role" />
+                        <div class="flex flex-wrap gap-3">
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="1" formControlName="role"></p-radioButton>
+                                <label class="ml-2">1</label>
+                            </div>
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="2" formControlName="role"></p-radioButton>
+                                <label class="ml-2">2</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 <div class="button-submit">
                     <div>
                         <p-button label="Submit" (onClick)="onUpdateRoleFormSubmit()"></p-button>
@@ -88,13 +113,33 @@
                     </div>
                 </div>
                 <div class="p-formgrid grid">
+                   
                     <div class="field col">
-                        <label>Role:</label>
-                        <input type="text" pInputText placeholder="password" formControlName="role" />
+                        <label class="radiolabel">Active Status:</label>
+                        <div class="flex flex-wrap gap-3">
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="1" formControlName="activestatus"></p-radioButton>
+                                <label class="ml-2">1</label>
+                            </div>
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="2" formControlName="activestatus"></p-radioButton>
+                                <label class="ml-2">2</label>
+                            </div>
+                        </div>
+                        
                     </div>
                     <div class="field col">
-                        <label>Active Status:</label>
-                        <input type="text" pInputText placeholder="active status" formControlName="activestatus" />
+                        <label class="radiolabel">Role:</label>
+                        <div class="flex flex-wrap gap-3">
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="1" formControlName="role"></p-radioButton>
+                                <label class="ml-2">1</label>
+                            </div>
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="2" formControlName="role"></p-radioButton>
+                                <label class="ml-2">2</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -114,12 +159,23 @@
                         <label>Path:</label>
                         <input  type="text" pInputText placeholder="path" formControlName="path" />
                     </div>
+                   
+                </div>
+                <div class="p-formgrid grid">
                     <div class="field col">
                         <label>Role:</label>
-                        <input  type="text" pInputText placeholder="role" formControlName="role" />
+                        <div class="flex flex-wrap gap-3">
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="1" formControlName="role"></p-radioButton>
+                                <label class="ml-2">1</label>
+                            </div>
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="2" formControlName="role"></p-radioButton>
+                                <label class="ml-2">2</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
-              
                 <div class="button-submit">
                     <div>
                         <p-button label="Submit" (onClick)="onUpdateAccessPermisionFormSubmit()"></p-button>

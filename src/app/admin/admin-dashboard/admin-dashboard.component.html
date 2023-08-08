@@ -1,8 +1,9 @@
 
 <div class="panel">
     <div class="admin-tab">
+        
         <p-card >
-            <p-tabMenu   [model]="items" (activeItemChange)="onActiveItemChange($event)" [style]="{'border-radius':'12px'}"></p-tabMenu>
+            <p-tabMenu [scrollable]="true" [model]="items" (activeItemChange)="onActiveItemChange($event)" [style]="{'border-radius':'12px'}"></p-tabMenu>
         </p-card>
     </div>
     

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { AdminService } from 'src/app/admin.service';
+import { AdminService } from 'src/app/service';
 import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-update-form',
@@ -44,7 +44,6 @@ export class UpdateFormComponent {
   onUpdateRoleFormSubmit() {
     let body = this.updateRoleForm.value
     this.adminService.updateRole(body).subscribe(data => {
-      console.log(data)
       if (data.code == "AP000") {
         this.messageService.add({
           severity: 'success',
@@ -71,9 +70,9 @@ export class UpdateFormComponent {
 
   onUpdateUserFormSubmit() {
     let body = this.updateUserForm.value
-    console.log(body)
+    
     this.adminService.callApi("api/serviceapi/update/item", body).subscribe(data => {
-      console.log(data)
+
       if (data.code == "AP000") {
         this.messageService.add({
           severity: 'success',
@@ -127,9 +126,8 @@ export class UpdateFormComponent {
   onUpdateRoleItemFormSubmit() {
     let body = this.updateRoleItemForm.value
 
-    console.log("body: ",  body)
     this.adminService.callApi("api/serviceapirole/update/item", body).subscribe(data => {
-      console.log(data)
+
       if (data.code == "AP000") {
         this.messageService.add({
           severity: 'success',

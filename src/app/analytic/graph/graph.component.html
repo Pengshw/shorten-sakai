@@ -7,7 +7,7 @@
                 <div class="form-container">
                     <div class="p-inputgroup">
                         <span class="p-inputgroup-addon">Url</span>
-                        <input class="input" type="text" pInputText placeholder="url" formControlName="link" />
+                        <p-autoComplete class="test" [style]="{'width': '100%'}" formControlName="link" [suggestions]="filteredUrl" (completeMethod)="filterUrl($event)" ></p-autoComplete>
                     </div>
                     <div class="button-submit">
                         <p-button label="Register" styleClass="p-button-danger" (onClick)="onLinkFormSubmit()"></p-button>
@@ -19,4 +19,3 @@
     
     
 </div>
-

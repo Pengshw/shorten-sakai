@@ -1,11 +1,19 @@
+.calender-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+}
+
 .form {
     display: flex;
-    flex-direction: row-reverse;
+    justify-content: center;
 }
 
 .form-container {
     display: flex;
     width: 90%;
+    justify-content: space-between;
 }
 
 .start_date-container {
@@ -32,7 +40,7 @@ label {
 }
 
 .linegraphPanelinner {
-    width: 80%;
+    width: 100%;
     padding: 0 32px;
 }
 .linegraphPanel {
@@ -100,6 +108,16 @@ label {
 
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .body {
+        padding: 0;
+
+    }
+
     .form {
         flex-direction: row;
         justify-content: center;
@@ -109,16 +127,43 @@ label {
         flex-direction: column;
     
     }
+    
 
     .button-container {
         display: flex;
         flex-direction: row-reverse;
     }
 
-    .form-container {
-        padding: 16px 32px;
+
+    .calender-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
         
     }
+    
+    .linegraphPanelinner {
+        margin: 0;
+        padding: 0;
+    }
 
+    .linegraphPanel {
+        margin: 0;
+        padding: 0;
+    }
+    .panel {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .browserPanel {
+        flex-direction: column;
+    } 
+    .mostvisitedPanel {
+        margin-top: 32px;
+    }
   
   }

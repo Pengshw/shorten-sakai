@@ -21,6 +21,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { DividerModule } from 'primeng/divider';
 import { PaginatorModule } from 'primeng/paginator';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 import { AppLayoutModule } from '../layout/app.layout.module';
 
@@ -50,6 +51,7 @@ import { AppLayoutModule } from '../layout/app.layout.module';
     DividerModule,
     PaginatorModule,
     AppLayoutModule,
+    AutoCompleteModule
   ]
 })
 export class AnalyticModule { }

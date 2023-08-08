@@ -1,8 +1,11 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import {MessageService} from 'primeng/api';
+import {HttpClient} from "@angular/common/http";
+import { IResponseCode } from "src/app/interface";
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +15,32 @@ export class AuthService {
   private subject = new Subject<boolean>();
   isLoggedIn: boolean = false
   isAdmin: boolean = false;
-  constructor(private cookieservice: CookieService, private router: Router, private messageService: MessageService) {
+  port = "3527"
+
+  constructor(private cookieservice: CookieService, private router: Router, private messageService: MessageService, private http: HttpClient) {
     if( this.cookieservice.get("isAdmin") === "true") {
       this.isAdmin = true
     }
    }
 
- 
+   __getJwtFromCookie() {
+
+    
+    let headers = {}
+    if (this.cookieservice.check("jwt")) {
+   
+        headers = {
+            "authorization": `jwt ${this.cookieservice.get("jwt")}`
+        }
+    }
+    return headers
+  }
+
+   verifyJwt() {
+    let header = this.__getJwtFromCookie()
+  
+    return this.http.get<IResponseCode>(`http://localhost:${this.port}/api/serviceapi/checktoken` ,{headers: header})
+  }
 
   getLogInStatus(): boolean {
     return (this.cookieservice.check("jwt"));
@@ -28,12 +50,17 @@ export class AuthService {
     this.isAdmin = isAdmin;
     this.cookieservice.set("jwt", token)
     this.cookieservice.set("isAdmin", this.isAdmin.toString())
-    console.log(this.cookieservice.get('jwt'))
+    
     this.isLoggedIn = true;
     this.subject.next(true);
   }
 
   logout() {
+    this.messageService.add({
+      severity: 'error',
+      summary: 'Sessoin Expired',
+      detail: 'Please log in again'
+    });
     this.cookieservice.delete('jwt');
     this.isLoggedIn = false;
     this.subject.next(false);

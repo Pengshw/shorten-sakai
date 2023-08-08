@@ -23,8 +23,11 @@ import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
 import { MessageService } from 'primeng/api';
 
+import { InterceptService } from './service/intercept.service';
+import {  HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { HeaderComponent } from './header/header.component';
-import { AnalyticDashboardComponent } from './analytic/analytic-dashboard/analytic-dashboard.component';
+
 
 @NgModule({
     declarations: [
@@ -49,7 +52,12 @@ import { AnalyticDashboardComponent } from './analytic/analytic-dashboard/analyt
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         CountryService, CustomerService, EventService, IconService, NodeService,
-        PhotoService, ProductService, MessageService
+        PhotoService, ProductService, MessageService, InterceptService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: InterceptService,
+            multi: true
+          }
     ],
     bootstrap: [AppComponent]
 })

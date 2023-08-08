@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { AdminService } from 'src/app/admin.service';
+import { AdminService } from 'src/app/service';
 import { MessageService } from 'primeng/api';
 
 
@@ -20,10 +20,8 @@ export class CreateFormComponent {
   })
 
   onBrowserUserRegisterSubmit = () => {
-    console.log(this.registerBrowserUserForm.value)
     const body = this.registerBrowserUserForm.value
     this.adminService.callApi("register", body).subscribe(data => {
-      console.log(data)
       if (data.code == "AP000") {
         this.messageService.add({
           severity: 'success',
@@ -53,16 +51,21 @@ export class CreateFormComponent {
 
   onUserRegisterSubmit() {
     let body = this.registerUserForm.value
-    console.log(body)
     this.adminService.registerUser(body).subscribe(data => {
-      console.log("data: ", data)
       if (data.code == "AP000") {
         this.messageService.add({
           severity: 'success',
           summary: 'Success!',
           detail: 'User has been registered'
         });
-      } else {
+      }  else if (data.code === "AT000") {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Sessoin Expired',
+          detail: 'Please log in again'
+        });
+      } 
+      else {
         this.messageService.add({
           severity: 'error',
           summary: 'Error',
@@ -84,9 +87,7 @@ export class CreateFormComponent {
   onCreateAccessPermisionFormSubmit() {
     let body = this.createAccessPermisionForm.value
     body.rolearray = `[${body.role}]`
-    console.log(body)
     this.adminService.callApi("api/serviceapiaccesspermission/create/new", body).subscribe(data => {
-      console.log(data)
       if (data.code == "AP000") {
         this.messageService.add({
           severity: 'success',
@@ -111,7 +112,6 @@ export class CreateFormComponent {
     let body = this.createRoleForm.value
 
     this.adminService.callApi("api/serviceapirole/create/new", body).subscribe(data => {
-      console.log(data)
       if (data.code == "AP000") {
         this.messageService.add({
           severity: 'success',
