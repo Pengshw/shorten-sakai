@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { CommonModule } from '@angular/common';  
-import { BrowserModule } from '@angular/platform-browser';
+import { HashLocationStrategy, LocationStrategy, CommonModule } from '@angular/common'; 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppLayoutModule } from './layout/app.layout.module';

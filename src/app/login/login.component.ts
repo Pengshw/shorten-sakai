@@ -62,7 +62,7 @@ export class LoginComponent {
 
             if (data.token != "" && data.code == "AP000") { 
                
-                let isadmin = data.role == 1 ? true: false
+                let isadmin = data.role == 1 
               
                 this.authService.logIn(data.token, isadmin);
 
@@ -71,7 +71,7 @@ export class LoginComponent {
         })
     }
 
-    checkCaptcha(captchaResponse : string) {    this.captchaResolved = (captchaResponse && captchaResponse.length > 0) ? true : false}
+    checkCaptcha(captchaResponse : string) {    this.captchaResolved = captchaResponse && captchaResponse.length > 0}
 
     handleClick(e: any) {
         this.onSubmit();

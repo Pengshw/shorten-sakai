@@ -38,6 +38,7 @@ input.input {
     /* For mobile phones: */
     .container {
         align-items: flex-end;
+        padding: 0;
     }
     .p-inputgroup {
         padding: 0;
@@ -50,10 +51,6 @@ input.input {
         flex-direction: column;
         
         
-    }
-    .container {
-        padding: 0;
-
     }
     .button-submit {
         display:flex;
