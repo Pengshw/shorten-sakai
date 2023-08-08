@@ -68,9 +68,8 @@ export class GraphComponent implements OnInit {
         let data: number[] = []
        
         this.analyticService.getClicksOverTimeData(dates, link).subscribe(res => {
-          
-            if (res.length == 0) return
-
+            
+            if (res.length == 0 && !this.urls.includes(link)) return
             if (!this.linkLines.includes(link)) this.linkLines.push(link)
 
             let labelValues = res.map(item => item.count_date)
@@ -145,6 +144,6 @@ export class GraphComponent implements OnInit {
       })
     
     onLinkFormSubmit = () => {
-        this.addLine(this.dates, (this.linkForm.value.link) as string );
+        this.addLine(this.dates, this.linkForm.value.link );
     }
 }

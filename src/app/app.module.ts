@@ -48,7 +48,6 @@ import { HeaderComponent } from './header/header.component';
         
     ],
     providers: [
-        { provide: LocationStrategy, useClass: HashLocationStrategy },
         CountryService, CustomerService, EventService, IconService, NodeService,
         PhotoService, ProductService, MessageService, InterceptService,
         {

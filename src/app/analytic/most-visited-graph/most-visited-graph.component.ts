@@ -25,16 +25,14 @@ export class MostVisitedGraphComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateChart([])
-
   }
 
   updateChart(dates: Date[]) {
     this.analyticService.getMostVisitedDomains(dates).subscribe( (data: ISitesItem[]) => {
-      
       this.items = data
       this.total = data.map(item => item.count).reduce( (x, y) => {return x+y}, 0)
       this.totalRecord = data.length
-      this.updateDisplayItems(0, 5)
+      this.updateDisplayItems(5)
     })
   }
 

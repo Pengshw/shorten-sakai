@@ -14,6 +14,6 @@ export class UrlOverlayComponent {
 
   ngOnInit() {
     
-    this.data = JSON.stringify(this.config.data.resp.new_url);
+    this.data = JSON.stringify(this.config.data.url);
   }
 }

@@ -51,13 +51,14 @@ export class UrlformComponent {
             return
         }
         this.onUrlFormSubmit().subscribe(resp => {
-            if (resp.code === "success") {
+       
+            if (resp.code === "AP000") {
                 this.ref = this.dialogService.open(UrlOverlayComponent, {
                 header: 'Your New URL', data:{
-                    resp
+                    url: resp.shortenurl
                 }
                 });
-            } else if (resp.code == "failure") {
+            } else if (resp.code == "AN000") {
                 this.messageService.add({
                 severity: 'error',
                 summary: 'Error',
