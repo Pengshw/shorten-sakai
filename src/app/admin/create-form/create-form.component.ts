@@ -16,7 +16,7 @@ export class CreateFormComponent {
     username: "",
     password: "",
     role: "",
-    activeStatus: ""
+    activeStatus: "1"
   })
 
   onBrowserUserRegisterSubmit = () => {
@@ -44,7 +44,7 @@ export class CreateFormComponent {
     serviceapipassword: "",
     secretkey: "",
     serviceapirole: "",
-    activestatus: ""
+    activestatus: "1"
   })
 
 

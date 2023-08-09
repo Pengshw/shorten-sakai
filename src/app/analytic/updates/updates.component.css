@@ -1,14 +1,14 @@
 .panel {
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-end;
     flex-wrap:wrap;
-    padding-top: 50px;
+    
 }
 .update-card {
-    width: 280px;
-    height: 240px;
-    margin: 16px 16px;
+    width: 240px;
+    height: 180px;
+    margin: 12px 12px 0px 12px;
 }
 
 .update-card-title {

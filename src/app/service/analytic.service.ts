@@ -51,32 +51,32 @@ export class AnalyticService {
         let dateParams = this.__getDateStringParams(dates);
         let header = this.authService.__getJwtFromCookie()
         
-        return this.http.get<any[]>(`http://localhost:${this.port}/clicksPerUrl?start_date=${dateParams.weekBeforeParam}&end_date=${dateParams.todayParam}`, { headers: header })
+        return this.http.get<any[]>(`http://localhost:${this.port}/clicksperurl?start_date=${dateParams.weekBeforeParam}&end_date=${dateParams.todayParam}`, { headers: header })
     }
 
     getLatestUrl() {
         let header = this.authService.__getJwtFromCookie()
-        return this.http.get<ILatestUrlItem>(`http://localhost:${this.port}/latestUrl`, { headers: header })
+        return this.http.get<ILatestUrlItem>(`http://localhost:${this.port}/latesturl`, { headers: header })
     }
 
     getTotalClick(dates: Date[]) {
         let dateParams = this.__getDateStringParams(dates);
         let header = this.authService.__getJwtFromCookie()
-        return this.http.get<IClickCountItem>(`http://localhost:${this.port}/clickCount?start_date=${dateParams.weekBeforeParam}&end_date=${dateParams.todayParam}`, { headers: header })
+        return this.http.get<IClickCountItem>(`http://localhost:${this.port}/clickcount?start_date=${dateParams.weekBeforeParam}&end_date=${dateParams.todayParam}`, { headers: header })
     }
 
     getTotalNewUrl(dates: Date[]) {
         let dateParams = this.__getDateStringParams(dates);
         let header = this.authService.__getJwtFromCookie()
 
-        return this.http.get<IClickCountItem>(`http://localhost:${this.port}/newUrlCount?start_date=${dateParams.weekBeforeParam}&end_date=${dateParams.todayParam}`, { headers: header })
+        return this.http.get<IClickCountItem>(`http://localhost:${this.port}/newurlcount?start_date=${dateParams.weekBeforeParam}&end_date=${dateParams.todayParam}`, { headers: header })
     }
 
     getBrowserData(dates: Date[]) {
         let dateParams = this.__getDateStringParams(dates);
         let header = this.authService.__getJwtFromCookie()
 
-        return this.http.get<IBrowserData[]>(`http://localhost:${this.port}/getBrowserData?start_date=${dateParams.weekBeforeParam}&end_date=${dateParams.todayParam}`, { headers: header })
+        return this.http.get<IBrowserData[]>(`http://localhost:${this.port}/getbrowserdata?start_date=${dateParams.weekBeforeParam}&end_date=${dateParams.todayParam}`, { headers: header })
 
     }
 
@@ -84,7 +84,7 @@ export class AnalyticService {
         let dateParams = this.__getDateStringParams(dates);
         let header = this.authService.__getJwtFromCookie()
 
-        return this.http.get<IOsData[]>(`http://localhost:${this.port}/getOsData?start_date=${dateParams.weekBeforeParam}&end_date=${dateParams.todayParam}`, { headers: header })
+        return this.http.get<IOsData[]>(`http://localhost:${this.port}/getosdata?start_date=${dateParams.weekBeforeParam}&end_date=${dateParams.todayParam}`, { headers: header })
 
     }
 
@@ -99,7 +99,7 @@ export class AnalyticService {
             linkParam = ""
         }
 
-        return this.http.get<IClickData[]>(`http://localhost:${this.port}/getClicksOverTime?start_date=${dateParams.weekBeforeParam}&end_date=${dateParams.todayParam}${linkParam}`, { headers: header })
+        return this.http.get<IClickData[]>(`http://localhost:${this.port}/getclicksovertime?start_date=${dateParams.weekBeforeParam}&end_date=${dateParams.todayParam}${linkParam}`, { headers: header })
 
     }
 
@@ -107,7 +107,7 @@ export class AnalyticService {
         let dateParams = this.__getDateStringParams(dates);
         let header = this.authService.__getJwtFromCookie()
 
-        return this.http.get<ISitesItem[]>(`http://localhost:${this.port}/getMostVisitedUrls?start_date=${dateParams.weekBeforeParam}&end_date=${dateParams.todayParam}`, { headers: header })
+        return this.http.get<ISitesItem[]>(`http://localhost:${this.port}/getmostvisitedurls?start_date=${dateParams.weekBeforeParam}&end_date=${dateParams.todayParam}`, { headers: header })
     }
 
 

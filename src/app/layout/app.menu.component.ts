@@ -19,13 +19,7 @@ export class AppMenuComponent implements OnInit {
                 items: [
                     { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
                     { label: 'Shorten Link', icon: 'pi pi-link',  routerLink: ['/urlpanel'] },
-                ]
-            },
-            {
-                label: 'Users',
-                items: [
                     { label: 'Logout', icon: 'pi pi pi-sign-out', command: () =>  this.authService.logout()},
-                   
                 ]
             }
         ]
@@ -34,12 +28,18 @@ export class AppMenuComponent implements OnInit {
             {
                 label: 'Admin',
                 items: [
-                    { label: 'CRUD',
+                    { label: 'ServiceAPI',
                     icon: 'pi pi-fw pi-pencil',
                     routerLink: ['/admin'] },
-                    
+                    { label: 'User',
+                    icon: 'pi pi-fw pi-pencil',
+                    routerLink: ['/admin'] },
+                    { label: 'Permissions',
+                    icon: 'pi pi-fw pi-pencil',
+                    routerLink: ['/admin'] },
                 ]
             })
         }
     }
 }
+

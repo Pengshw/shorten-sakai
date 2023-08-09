@@ -1,5 +1,5 @@
 import { Component, } from '@angular/core';
-import { ILatestUrlItem, ICardInfo,  IClickCountItem} from "src/app/interface"
+import { ICardInfo,  IClickCountItem} from "src/app/interface"
 import { CalendarService, AnalyticService } from 'src/app/service';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
@@ -36,13 +36,6 @@ export class UpdatesComponent {
         subdata: ""
     };
 
-    latestUrlItem: ICardInfo = {
-        field: "",
-        data_title: "",
-        data: "",
-        subdata_title: "",
-        subdata: ""
-    };
 
     newUrlGeneratedItem: ICardInfo = {
         field: "",
@@ -52,32 +45,8 @@ export class UpdatesComponent {
         subdata: ""
     };
     
-    private __configureLongLink(link: string) {
-        if (link.length > 30) {
-          return link.substring(0,30) + "....."
-        }
-        return link
-      }
 
-
-    generateLatestUrlData() {
-        let latestUrl = this.analyticsService.getLatestUrl()
-        latestUrl.subscribe((data: ILatestUrlItem)  => {
-
-        
-            let newField: ICardInfo = {
-                field: "Latest Url Generated",
-                data_title : "Shorten link:",
-                data: `${data.shortUrl}`,
-                subdata_title: "Original Link: ",
-                subdata: `${this.__configureLongLink(data.longUrl)}`
-            }
-            
-            this.latestUrlItem = newField
-            
-                
-        })
-    } 
+    
 
     generateTotalClick(dates: Date[]) {
         let totalClick = this.analyticsService.getTotalClick(dates)
@@ -124,7 +93,6 @@ export class UpdatesComponent {
     
 
     ngOnInit() {
-        this.generateLatestUrlData();
         this.generateTotalClick([]);
         this.generateTotalNewUrl([]);
     }

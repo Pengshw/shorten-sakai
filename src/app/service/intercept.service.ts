@@ -25,6 +25,7 @@ export class InterceptService  implements HttpInterceptor {
 			tap({
 				next: (event) => {
 					if (event instanceof HttpResponse) {
+						console.log("event.body: ", event.body)
 						if (event.body.code === "AT000") this.authService.logout()	
 					}
 				},

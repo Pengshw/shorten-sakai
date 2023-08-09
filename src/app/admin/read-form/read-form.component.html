@@ -57,10 +57,12 @@
                     [rowsPerPageOptions]="[5, 10, 15]">
                     <ng-template pTemplate="header">
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Role</th>
-                            <th>Secret Key</th>
+                            <th id="userid">ID</th>
+                            <th id="username" >Name</th>
+                            <th id="userrole" >Role</th>
+                            <th id="activestatus" >Active Status</th>
+                           
+                            <th id="secretkey" >Secret Key</th>
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-user>
@@ -68,6 +70,8 @@
                             <td>{{user.serviceapiID}}</td>
                             <td>{{user.serviceapiName}}</td>
                             <td>{{user.serviceapiRole}}</td>
+                            <td>{{user.activeStatus}}</td>
+                            
                             <td>{{user.serviceapiSecretKey}}</td>
                         </tr>
                     </ng-template>

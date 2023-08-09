@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewEncapsulation} from '@angular/core';
-import { Subscription, from } from 'rxjs';
+import { Component, OnInit} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CalendarService, AnalyticService } from 'src/app/service';
 import { FormBuilder } from '@angular/forms';
-import { IDateItem, IGraphPoints } from 'src/app/interface';
-
+import { IDateItem } from 'src/app/interface';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-graph',
@@ -26,7 +26,7 @@ export class GraphComponent implements OnInit {
     clickEventsubscription:Subscription
 
 
-    constructor(private analyticService: AnalyticService, private calendarService: CalendarService, private fb: FormBuilder) {
+    constructor(private analyticService: AnalyticService, private calendarService: CalendarService, private fb: FormBuilder, private messageService: MessageService) {
         this.clickEventsubscription = this.calendarService.getClickEvent().subscribe((data)=>{
             this.dates = data;
             this.resetGraph();
@@ -144,6 +144,31 @@ export class GraphComponent implements OnInit {
       })
     
     onLinkFormSubmit = () => {
+        
+        if (! this.urls.includes(this.linkForm.value.link) ) {
+            this.messageService.add({
+                severity: 'error',
+                summary: 'Url not found',
+                detail: 'Please input a valid url'
+              });
+              return
+        }
+        if (this.linkLines.length > 5) {
+            this.messageService.add({
+                severity: 'info',
+                summary: 'Max urls reached',
+                detail: 'Please refresh the page to clear the urls'
+              });
+              return
+        }
+        if (this.linkLines.includes(this.linkForm.value.link)) {
+            this.messageService.add({
+                severity: 'info',
+                summary: 'URL is already added',
+                detail: 'Please input a valid url'
+              });
+              return
+        }
         this.addLine(this.dates, this.linkForm.value.link );
     }
 }

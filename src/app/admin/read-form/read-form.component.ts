@@ -36,7 +36,7 @@ export class ReadFormComponent {
     let body = this.searchIdForm.value
 
     this.adminService.callApi("api/serviceapi/view/item", body).subscribe(data => {
-      
+      console.log("data: ", data)
       this.clearUsers()
       this.displayUser(data.record[0])
     })

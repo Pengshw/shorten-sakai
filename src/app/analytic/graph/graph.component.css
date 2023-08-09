@@ -10,11 +10,13 @@
 
 .form-container {
     display: flex;
+    width: 65%;
+    margin-bottom: 32px;
 }
 
 .container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .p-inputgroup {
@@ -26,7 +28,7 @@
 }
 
 input.input {
-    width:200px;
+    width: 200px;
 }
 
 .input-form {
@@ -43,12 +45,12 @@ input.input {
     .p-inputgroup {
         padding: 0;
         margin: 0;
+        margin-left: 8px;
         margin-bottom: 16px;
         
     }
     .form-container {
-        width: 100%;
-        flex-direction: column;
+        width: 65%;
         
         
     }
@@ -56,7 +58,8 @@ input.input {
         display:flex;
         justify-content: flex-end;
         margin: 0;
-        padding: 0
+        padding: 0;
+        margin-left: 8px;
     }
     .card {
         margin: 0;
@@ -66,10 +69,5 @@ input.input {
         width: 85%;
     }
 
-    :host ::ng-deep  {
-        
-        .test {
-            width: 80px
-        }
-    }
+
 }
