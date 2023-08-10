@@ -12,31 +12,7 @@ import { MessageService } from 'primeng/api';
 export class CreateFormComponent {
   constructor(private fb: FormBuilder, private adminService: AdminService, private messageService: MessageService) { }
   
-  registerBrowserUserForm = this.fb.group({
-    username: "",
-    password: "",
-    role: "",
-    activeStatus: "1"
-  })
-
-  onBrowserUserRegisterSubmit = () => {
-    const body = this.registerBrowserUserForm.value
-    this.adminService.callApi("register", body).subscribe(data => {
-      if (data.code == "AP000") {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Success!',
-          detail: 'User has been registered'
-        });
-      } else {
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Error',
-          detail: 'There is an error in registration'
-        });
-      }
-    })
-  }
+  
 
   registerUserForm = this.fb.group({
     serviceapiid: "",
@@ -75,56 +51,5 @@ export class CreateFormComponent {
 
     })
   }
-  createAccessPermisionForm = this.fb.group({
-    path: "",
-    role: "",
-    rolearray: ""
-  })
-
-
-
-
-  onCreateAccessPermisionFormSubmit() {
-    let body = this.createAccessPermisionForm.value
-    body.rolearray = `[${body.role}]`
-    this.adminService.callApi("api/serviceapiaccesspermission/create/new", body).subscribe(data => {
-      if (data.code == "AP000") {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Success!',
-          detail: 'Access has been created'
-        });
-      } else {
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Error',
-          detail: 'There is an error in creating'
-        });
-      }
-    })
-  }
-
-  createRoleForm = this.fb.group({
-    rolename: ""
-  })
-
-  onCreateRoleFormSubmit() {
-    let body = this.createRoleForm.value
-
-    this.adminService.callApi("api/serviceapirole/create/new", body).subscribe(data => {
-      if (data.code == "AP000") {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Success!',
-          detail: 'Access has been updated'
-        });
-      } else {
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Error',
-          detail: 'There is an error in updating'
-        });
-      }
-    })
-  }
+  
 }

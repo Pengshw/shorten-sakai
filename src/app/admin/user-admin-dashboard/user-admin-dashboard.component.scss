@@ -16,12 +16,33 @@
     padding: 0 46px
 }
 
+.button-submit {
+    display: flex;
+    flex-direction: row-reverse;
+
+}
+
+.card {
+    margin-bottom: 32px;
+}
+
+.grid {
+    margin: 0 24px;
+}
+
 @media only screen and (max-width: 768px) {
-    .panel {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+
+    .grid {
+        margin: 0;
     }
+   .radiolabel {
+    height: 42px;
+   }
+   .panel {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }   
     .read-tab {
         margin-left: 0;
     }
@@ -31,6 +52,5 @@
     .grid {
         margin: 0;
     }
-  
-   
 }
+

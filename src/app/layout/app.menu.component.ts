@@ -33,10 +33,10 @@ export class AppMenuComponent implements OnInit {
                     routerLink: ['/admin'] },
                     { label: 'User',
                     icon: 'pi pi-fw pi-pencil',
-                    routerLink: ['/admin'] },
+                    routerLink: ['/admin/userform'] },
                     { label: 'Permissions',
                     icon: 'pi pi-fw pi-pencil',
-                    routerLink: ['/admin'] },
+                    routerLink: ['/admin/permissionform'] },
                 ]
             })
         }

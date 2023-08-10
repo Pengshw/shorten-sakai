@@ -25,6 +25,9 @@ import { DeleteFormComponent } from './delete-form/delete-form.component';
 import { ReadFormComponent } from './read-form/read-form.component';
 import { ReadPermissionFormComponent } from './read-permission-form/read-permission-form.component';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { UserAdminDashboardComponent } from './user-admin-dashboard/user-admin-dashboard.component';
+import { PermissionDashboardComponent } from './permission-dashboard/permission-dashboard.component';
+
 @NgModule({
   declarations: [
     AdminDashboardComponent,
@@ -32,7 +35,9 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     UpdateFormComponent,
     DeleteFormComponent,
     ReadFormComponent,
-    ReadPermissionFormComponent
+    ReadPermissionFormComponent,
+    UserAdminDashboardComponent,
+    PermissionDashboardComponent
   ],
   imports: [
     CommonModule,

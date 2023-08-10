@@ -1,80 +1,7 @@
 <p-toast></p-toast>
 
 <div class="grid">
-    <div class="col-12 md:col-6">
-        <form class="form" [formGroup]="registerBrowserUserForm">
-            <div class="card p-fluid">
-                <h1> Register new user </h1>
-                <div class="p-formgrid grid">
-                    <div class="field col">
-                        <label>Username:</label>
-                        <input  type="text" pInputText placeholder="username" formControlName="username" />
-                    </div>
-                    <div class="field col">
-                        <label>Password:</label>
-                        <input type="password" pInputText placeholder="password" formControlName="password" />
-                    </div>
-                </div>
-                <div class="p-formgrid grid">
-                   
-                    
-                    <div class="field col">
-                        <label class="radiolabel">Role:  </label>
-                        <div class="flex flex-wrap gap-3">
-                            <div  class="flex align-items-center">
-                                <p-radioButton  [value]="1" formControlName="role"></p-radioButton>
-                                <label class="ml-2">1</label>
-                            </div>
-                            <div  class="flex align-items-center">
-                                <p-radioButton  [value]="2" formControlName="role"></p-radioButton>
-                                <label class="ml-2">2</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-             
-                <div class="button-submit">
-                    <div>
-                        <button pButton pRipple type="button" label="Submit" class="button-outlined" (click)="onBrowserUserRegisterSubmit()"></button>
-                    </div>
-
-                    
-                </div>
-            </div>
-        </form>
-        <form class="form" [formGroup]="createAccessPermisionForm">
-            <div class="card p-fluid">
-                <h1> Create Access Permission </h1>
-                <div class="p-formgrid grid">
-                    <div class="field col">
-                        <label>Path:</label>
-                        <input  type="text" pInputText placeholder="path" formControlName="path" />
-                    </div>
-                    
-                </div>
-                <div class="p-formgrid grid">
-                <div class="field col">
-                    <label>Role:</label>
-                        <div class="flex flex-wrap gap-3">
-                            <div  class="flex align-items-center">
-                                <p-radioButton  [value]="1" formControlName="role"></p-radioButton>
-                                <label class="ml-2">1</label>
-                            </div>
-                            <div  class="flex align-items-center">
-                                <p-radioButton  [value]="2" formControlName="role"></p-radioButton>
-                                <label class="ml-2">2</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="button-submit">
-                    <div>
-                        <button pButton pRipple type="button" label="Submit" class="button-outlined" (click)="onCreateAccessPermisionFormSubmit()"></button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
+   
     <div class="col-12 md:col-6">
         <form class="form" [formGroup]="registerUserForm">
             <div class="card p-fluid">
@@ -125,24 +52,6 @@
             </div>
         </form>
         
-        <form class="form" [formGroup]="createRoleForm">
-            <div class="card p-fluid">
-                <h1> Create new Role </h1>
-                <div class="p-formgrid grid">
-                    <div class="field col">
-                        <label>Role name:</label>
-                        <input  type="text" pInputText placeholder="name" formControlName="rolename" />
-                    </div>
-                </div>
-              
-                <div class="button-submit">
-                    <div>
-                        <button pButton pRipple type="button" label="Submit" class="button-outlined" (click)="onCreateRoleFormSubmit()"></button>
-                    </div>
-
-                    
-                </div>
-            </div>
-        </form>
+        
     </div>
 </div>

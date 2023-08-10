@@ -1,0 +1,137 @@
+<div class="panel">
+    <div class="admin-tab">
+        
+        <p-card >
+            <p-tabMenu [scrollable]="true" (activeItemChange)="onActiveItemChange($event)" [model]="items"  [style]="{'border-radius':'12px'}"></p-tabMenu>
+        </p-card>
+    </div>
+    
+    
+</div>
+
+<p-toast></p-toast>
+
+<div class="grid" *ngIf="activeItem.label == 'Create'">
+    <div class="col-12 md:col-6">
+        
+        <form class="form" [formGroup]="createAccessPermisionForm">
+            <div class="card p-fluid">
+                <h1> Create Access Permission </h1>
+                <div class="p-formgrid grid">
+                    <div class="field col">
+                        <label>Path:</label>
+                        <input  type="text" pInputText placeholder="path" formControlName="path" />
+                    </div>
+                    
+                </div>
+                <div class="p-formgrid grid">
+                <div class="field col">
+                    <label>Role:</label>
+                        <div class="flex flex-wrap gap-3">
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="1" formControlName="role"></p-radioButton>
+                                <label class="ml-2">1</label>
+                            </div>
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="2" formControlName="role"></p-radioButton>
+                                <label class="ml-2">2</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-submit">
+                    <div>
+                        <button pButton pRipple type="button" label="Submit" class="button-outlined" (click)="onCreateAccessPermisionFormSubmit()"></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-12 md:col-6">
+        <form class="form" [formGroup]="createRoleForm">
+            <div class="card p-fluid">
+                <h1> Create new Role </h1>
+                <div class="p-formgrid grid">
+                    <div class="field col">
+                        <label>Role name:</label>
+                        <input  type="text" pInputText placeholder="name" formControlName="rolename" />
+                    </div>
+                </div>
+            
+                <div class="button-submit">
+                    <div>
+                        <button pButton pRipple type="button" label="Submit" class="button-outlined" (click)="onCreateRoleFormSubmit()"></button>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="grid" *ngIf="activeItem.label == 'Update'">
+    <div class="col-12 md:col-6">
+        <form class="form" [formGroup]="updateRoleItemForm">
+            <div class="card p-fluid">
+                <h1> Update Role name by ID </h1>
+                <div class="p-formgrid grid">
+                    <div class="field col">
+                        <label>ID:</label>
+                        <input  type="text" pInputText placeholder="id" formControlName="roleid" />
+                    </div>
+                    <div class="field col">
+                        <label>Name:</label>
+                        <input  type="text" pInputText placeholder="name" formControlName="rolename" />
+                    </div>
+                </div>
+            
+                <div class="button-submit">
+                    <div>
+                        <p-button label="Submit" (onClick)="onUpdateRoleItemFormSubmit()"></p-button>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-12 md:col-6">
+        <form class="form" [formGroup]="updateAccessPermisionForm">
+            <div class="card p-fluid">
+                <h1> Update Access Permission </h1>
+                <div class="p-formgrid grid">
+                    <div class="field col">
+                        <label>Path:</label>
+                        <input  type="text" pInputText placeholder="path" formControlName="path" />
+                    </div>
+                   
+                </div>
+                <div class="p-formgrid grid">
+                    <div class="field col">
+                        <label>Role:</label>
+                        <div class="flex flex-wrap gap-3">
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="1" formControlName="role"></p-radioButton>
+                                <label class="ml-2">1</label>
+                            </div>
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="2" formControlName="role"></p-radioButton>
+                                <label class="ml-2">2</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-submit">
+                    <div>
+                        <p-button label="Submit" (onClick)="onUpdateAccessPermisionFormSubmit()"></p-button>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<app-read-permission-form *ngIf="activeItem.label == 'Read'"></app-read-permission-form>

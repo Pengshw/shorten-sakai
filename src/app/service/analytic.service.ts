@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { ILatestUrlItem, IClickCountItem, IBrowserData, IOsData, IClickData, IDateItem, ISitesItem } from "src/app/interface"
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/auth/auth.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +14,24 @@ export class AnalyticService {
 
     private port = "3527"
 
+    Download(url: string): Observable<Blob> {
+        return this.http.get(url, {
+          responseType: 'blob'
+        })
+            /*
+    this.Download("http://localhost:3527/download").subscribe(blob => {
+        const a = document.createElement('a')
+        const objectUrl = URL.createObjectURL(blob)
+        a.href = objectUrl
+        a.download = 'test.js';
+        a.click();
+        URL.revokeObjectURL(objectUrl);
+    })
+    */
+      }
+    
 
+    
     getTodayAndLastWeekDate(): IDateItem {
         let date = new Date();
         let today = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} 23:59:59`

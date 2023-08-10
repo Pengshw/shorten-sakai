@@ -1,0 +1,215 @@
+<div class="panel">
+    <div class="admin-tab">
+        
+        <p-card >
+            <p-tabMenu [scrollable]="true" (activeItemChange)="onActiveItemChange($event)" [model]="items"  [style]="{'border-radius':'12px'}"></p-tabMenu>
+        </p-card>
+    </div>
+    
+    
+</div>
+
+<p-toast></p-toast>
+
+<div class="grid" *ngIf="activeItem.label == 'Create'">
+    <div class="col-12 md:col-6">
+        <form class="form" [formGroup]="registerBrowserUserForm">
+            <div class="card p-fluid">
+                <h1> Register new user </h1>
+                <div class="p-formgrid grid">
+                    <div class="field col">
+                        <label>Username:</label>
+                        <input  type="text" pInputText placeholder="username" formControlName="username" />
+                    </div>
+                    <div class="field col">
+                        <label>Password:</label>
+                        <input type="password" pInputText placeholder="password" formControlName="password" />
+                    </div>
+                </div>
+                <div class="p-formgrid grid">
+                   
+                    
+                    <div class="field col">
+                        <label class="radiolabel">Role:  </label>
+                        <div class="flex flex-wrap gap-3">
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="1" formControlName="role"></p-radioButton>
+                                <label class="ml-2">1</label>
+                            </div>
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="2" formControlName="role"></p-radioButton>
+                                <label class="ml-2">2</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             
+                <div class="button-submit">
+                    <div>
+                        <button pButton pRipple type="button" label="Submit" class="button-outlined" (click)="onBrowserUserRegisterSubmit()"></button>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="grid" *ngIf="activeItem.label == 'Update'">
+    <div class="col-12 md:col-6">
+        <form class="form" [formGroup]="updateUserForm">
+            <div class="card p-fluid">
+                <h1> Update User </h1>
+                <div class="p-formgrid grid">
+                    <div class="field col">
+                        <label>Username:</label>
+                        <input  type="text" pInputText placeholder="username" formControlName="username" />
+                    </div>
+                </div>
+                <div class="p-formgrid grid">
+                   
+                    <div class="field col">
+                        <label class="radiolabel">Active Status:</label>
+                        <div class="flex flex-wrap gap-3">
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="1" formControlName="activestatus"></p-radioButton>
+                                <label class="ml-2">1</label>
+                            </div>
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="2" formControlName="activestatus"></p-radioButton>
+                                <label class="ml-2">2</label>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="field col">
+                        <label class="radiolabel">Role:</label>
+                        <div class="flex flex-wrap gap-3">
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="1" formControlName="role"></p-radioButton>
+                                <label class="ml-2">1</label>
+                            </div>
+                            <div  class="flex align-items-center">
+                                <p-radioButton  [value]="2" formControlName="role"></p-radioButton>
+                                <label class="ml-2">2</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="button-submit">
+                    <div>
+                        <p-button label="Submit" (onClick)="onUpdateUserFormSubmit()"></p-button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="grid" *ngIf="activeItem.label == 'Read'">
+    <div class="col-12 md:col-6">
+        <form class="form" [formGroup]="searchInputForm">
+            <div class="card p-fluid">
+                <h1> Search for User item </h1>
+                <div class="p-formgrid grid">
+                    <div class="field col">
+                        <label>Input:</label>
+                        <input  type="text" pInputText placeholder="searchinput" formControlName="searchinput" />
+                    </div>
+                   
+                </div>
+                
+                <div class="button-submit">
+                    <div>
+                        <p-button label="Submit" (onClick)="onSearchInputFormSubmit()"></p-button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-12 md:col-6">
+    <form class="form" [formGroup]="searchIdForm">
+        <div class="card p-fluid">
+            <h1> Search for User with ID </h1>
+            <div class="p-formgrid grid">
+                <div class="field col">
+                    <label>ID:</label>
+                    <input  type="text" pInputText placeholder="ID" formControlName="id" />
+                </div>
+                
+            </div>
+            <div class="button-submit">
+                <div>
+                    <p-button label="Submit" (onClick)="onSearchIdFormSubmit()"></p-button>
+                </div>
+            </div>
+        </div>
+    </form>
+    </div>
+    
+
+</div>
+
+<div class="grid" *ngIf="activeItem.label == 'Read'">
+    <div class="col-12">
+        <div class="card">
+            <p-table [value]="users" styleClass="p-datatable-striped p-datatable-gridlines"
+                [tableStyle]="{ 'min-width': '50rem' }"
+                [paginator]="true"
+                [rows]="5"
+                [showCurrentPageReport]="true"
+                [tableStyle]="{ 'min-width': '50rem' }"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [rowsPerPageOptions]="[5, 10, 15]">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th id="userid">ID</th>
+                        <th id="username" >Name</th>
+                        <th id="userrole" >Role</th>
+                        <th id="activestatus" >Active Status</th>
+                        
+                        <th id="secretkey" >Secret Key</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-user>
+                    <tr>
+                        <td>{{user.ID}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.role}}</td>
+                        <td>{{user.activeStatus}}</td>
+                        
+                        <td>{{user.serviceapiSecretKey}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+            <ng-template pTemplate="paginatorright">
+                <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+            </ng-template>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="grid" *ngIf="activeItem.label == 'Delete'">
+    <div class="col-12 md:col-6">
+        <form class="form" [formGroup]="deleteItemForm">
+            <div class="card p-fluid">
+                <h1> Delete User by ID </h1>
+                <div class="p-formgrid grid">
+                    <div class="field col">
+                        <label>ID:</label>
+                        <input  type="text" pInputText placeholder="username" formControlName="id" />
+                    </div>
+                </div>
+                <div class="button-submit">
+                    <div>
+                        <p-button label="Submit" (onClick)="onDeleteItemFormSubmit()"></p-button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

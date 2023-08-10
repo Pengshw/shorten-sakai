@@ -90,58 +90,6 @@ export class UpdateFormComponent {
 
     
   }
-  updateAccessPermisionForm = this.fb.group({
-    path: "",
-    role: "",
-    rolearray: ""
-  })
-
-  onUpdateAccessPermisionFormSubmit() {
-    let body = this.updateAccessPermisionForm.value
-    body.rolearray = `[${body.role}]`
-
-    this.adminService.callApi("api/serviceapiaccesspermission/update/item", body).subscribe(data => {
-
-      if (data.code == "AP000") {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Success!',
-          detail: 'Access has been updated'
-        });
-      } else {
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Error',
-          detail: 'There is an error in updating'
-        });
-      }
-    })
-  }
-
-  updateRoleItemForm = this.fb.group({
-    roleid: "",
-    rolename: ""
-  })
-
-  onUpdateRoleItemFormSubmit() {
-    let body = this.updateRoleItemForm.value
-
-    this.adminService.callApi("api/serviceapirole/update/item", body).subscribe(data => {
-
-      if (data.code == "AP000") {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Success!',
-          detail: 'Role name has been updated'
-        });
-      } else {
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Error',
-          detail: 'There is an error in updating'
-        });
-      }
-    })
-  }
+  
 
 }

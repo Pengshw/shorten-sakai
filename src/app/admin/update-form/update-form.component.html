@@ -72,29 +72,7 @@
             </div>
         </form>
 
-        <form class="form" [formGroup]="updateRoleItemForm">
-            <div class="card p-fluid">
-                <h1> Update Role name by ID </h1>
-                <div class="p-formgrid grid">
-                    <div class="field col">
-                        <label>ID:</label>
-                        <input  type="text" pInputText placeholder="id" formControlName="roleid" />
-                    </div>
-                    <div class="field col">
-                        <label>Name:</label>
-                        <input  type="text" pInputText placeholder="name" formControlName="rolename" />
-                    </div>
-                </div>
-            
-                <div class="button-submit">
-                    <div>
-                        <p-button label="Submit" (onClick)="onUpdateRoleItemFormSubmit()"></p-button>
-                    </div>
-
-                    
-                </div>
-            </div>
-        </form>
+        
 
     </div>
 
@@ -151,40 +129,7 @@
             </div>
         </form>
         
-        <form class="form" [formGroup]="updateAccessPermisionForm">
-            <div class="card p-fluid">
-                <h1> Update Access Permission </h1>
-                <div class="p-formgrid grid">
-                    <div class="field col">
-                        <label>Path:</label>
-                        <input  type="text" pInputText placeholder="path" formControlName="path" />
-                    </div>
-                   
-                </div>
-                <div class="p-formgrid grid">
-                    <div class="field col">
-                        <label>Role:</label>
-                        <div class="flex flex-wrap gap-3">
-                            <div  class="flex align-items-center">
-                                <p-radioButton  [value]="1" formControlName="role"></p-radioButton>
-                                <label class="ml-2">1</label>
-                            </div>
-                            <div  class="flex align-items-center">
-                                <p-radioButton  [value]="2" formControlName="role"></p-radioButton>
-                                <label class="ml-2">2</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="button-submit">
-                    <div>
-                        <p-button label="Submit" (onClick)="onUpdateAccessPermisionFormSubmit()"></p-button>
-                    </div>
-
-                    
-                </div>
-            </div>
-        </form>
+        
     </div>
 
 </div>

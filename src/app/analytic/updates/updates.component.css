@@ -7,7 +7,6 @@
 }
 .update-card {
     width: 240px;
-    height: 180px;
     margin: 12px 12px 0px 12px;
 }
 
@@ -15,6 +14,10 @@
     font-size: 12px;
 }
 
+.update-card-container {
+    display: flex;
+    align-items: flex-end;
+}
 
 
 @media screen and (max-width: 768px) {

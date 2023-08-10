@@ -7,11 +7,7 @@
         </p-card>
     </div>
     
-    <div class="read-tab" *ngIf="this.activeItem.label === 'Read'">
-        <p-card >
-            <p-tabMenu   [model]="readItems" (activeItemChange)="onReadTabActiveItemChange($event)" [style]="{'border-radius':'12px'}"></p-tabMenu>
-        </p-card>
-    </div>
+
 </div>
 
 
@@ -20,6 +16,4 @@
 <app-create-form  *ngIf="activeItem.label === 'Create'"></app-create-form>
 <app-update-form  *ngIf="activeItem.label === 'Update'"></app-update-form>
 <app-delete-form  *ngIf="activeItem.label === 'Delete'"></app-delete-form>
-<app-read-form    *ngIf="activeItem.label === 'Read' && activeReadItem.label === 'ServiceAPI' "  ></app-read-form>
-<app-read-permission-form *ngIf="activeItem.label === 'Read' && activeReadItem.label === 'Role' " ></app-read-permission-form>
-
+<app-read-form    *ngIf="activeItem.label === 'Read'"> </app-read-form>
